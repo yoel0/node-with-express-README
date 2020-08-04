@@ -111,3 +111,31 @@ That’s it, you’re done. You have successfully created your first Node app. D
 Your finished app should have a folder structure somewhat resembling this.
 
 ![](./example.png)
+
+Credit to _Adnan Rahić_ from Medium.com
+
+# Additional Notes
+
+## How to Add .gitignore to your project
+
+```
+Whenever you use npm , just go ahead and make .gitignore and put node_modules/ inside it. Easiest way I think about it ...
+echo "node_modules/" >> .gitignore
+The above will create the .gitignore file and write the text node_modules/ inside the file for you.
+```
+
+Credit to _Rome Bell_
+
+## How to import your node module to project
+
+Exports keyword gives you the chance to “export” your objects and methods, using
+
+```
+module.exports
+```
+
+We must recieve it using "require" in another file like follows:
+
+const (insert relevant name here) = require('./filename');
+
+we prefix the module name with ./. That indicates that the module is a local file.
