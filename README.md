@@ -139,3 +139,48 @@ We must recieve it using "require" in another file like follows:
 const (insert relevant name here) = require('./filename');
 
 we prefix the module name with ./. That indicates that the module is a local file.
+
+## Express Routes
+
+Routing refers to how an application’s endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.
+
+You define routing using methods of the Express app object that correspond to HTTP methods; for example, app.get() to handle GET requests and app.post to handle POST requests. For a full list, see app.METHOD. You can also use app.all() to handle all HTTP methods and app.use() to specify middleware as the callback function (See Using middleware for details).
+
+These routing methods specify a callback function (sometimes called “handler functions”) called when the application receives a request to the specified route (endpoint) and HTTP method. In other words, the application “listens” for requests that match the specified route(s) and method(s), and when it detects a match, it calls the specified callback function.
+
+In fact, the routing methods can have more than one callback function as arguments. With multiple callback functions, it is important to provide next as an argument to the callback function and then call next() within the body of the function to hand off control to the next callback.
+
+The following code is an example of a very basic route.
+
+```javascript
+const express = require("express");
+const app = express();
+
+// respond with "hello world" when a GET request is made to the homepage
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
+```
+
+## Views
+
+The view layer is the most complex part of modern single page app frameworks. After all, this is the whole point of single page apps: make it easy to have awesomely rich and interactive views. As you will see, there are two general approaches to implementing the view layer: one is based around code, and the other is based around markup and having a fairly intricate templating system. These lead to different architectural choices.
+
+Views have several tasks to care of:
+
+- Rendering a template. We need a way to take data, and map it / output it as HTML.
+- Updating views in response to change events. When model data changes, we need to update the related view(s) to reflect the new data.
+- Binding behavior to HTML via event handlers. When the user interacts with the view HTML, we need a way to trigger behavior (code).
+
+## Templates
+
+EJS is a simple templating language that lets you generate HTML markup with plain JavaScript. No religiousness about how to organize things. No reinvention of iteration and control-flow. It's just plain JavaScript.
+
+## Layouts
+
+EJS Layouts enable us to dynamically fix content or elements to a page in such a way that even if a different page is requested, the content remains but the page is successfully accessed.
+
+## Controllers
+
+A controller is a function you write to control your data.
+Typically done by creating a controllers directory and adding in the controller js files applicable.
